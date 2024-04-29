@@ -4,7 +4,7 @@
     "clientid": "changeme",
     "guildid": "changeme",
     "welcome": {
-        "enabled": true,
+        "enabled": false,
         "channelID": "changeme",
         "pingmember": true,
         "embed": {
