@@ -1,0 +1,22 @@
+{
+    "ownerid": "changeme",
+    "botid": "changeme",
+    "clientid": "changeme",
+    "guildid": "changeme",
+    "welcome": {
+        "enabled": true,
+        "channelID": "changeme",
+        "pingmember": true,
+        "embed": {
+            "color": "#39FF14",
+            "title": "Welcome to the server",
+            "description": "We are glad to have you here.\nHave a nice stay"
+        },
+        "grantRole": true,
+        "roleID": "changeme"
+    },
+    "pingModule": false,
+    "commandModule": {
+        "errorchannelid": "changeme"
+    }
+}
