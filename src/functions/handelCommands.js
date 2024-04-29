@@ -29,6 +29,7 @@ module.exports = (client) => {
             try {
                 console.clear();
                 console.log(clc.blue('Open source bot template made by x08xNickelodeon on discord'));
+                console.log(clc.cyan('https://github.com/x08xNickelodeon/O.S.D.B.P.js'));
                 console.log(' ');
                 console.log(clc.yellow('Started refreshing application (/) commands.'));
 
