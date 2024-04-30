@@ -56,7 +56,7 @@ client.on('guildMemberAdd', member => {
             if (config.welcome.grantRole == true) {
                 const role = config.welcome.roleID
                 member.roles.add(role);
-                console.log(clc.xterm(120)(` ∟${member.guild.roles.get(role)} added to member`))
+                console.log(clc.xterm(120)(` ∟${role} added to member`))
             }
         }
     }

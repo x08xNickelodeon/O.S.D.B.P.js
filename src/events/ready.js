@@ -34,7 +34,7 @@ module.exports = {
         console.log(" ");
         console.log(clc.cyan('Main guild is ') + clc.magenta.bold(config.guildid));
         console.log(" ");
-        console.log(clc.green(`${client.user.username} Is now runnning! `) + clc.cyanBright.bold('(Free package)'));
+        console.log(clc.green(`${client.user.username} Is now runnning! `) + clc.cyanBright.bold(`(Version ${config.version})`));
         console.log(" ");
         console.log(clc.yellow.bold('――――――――――――――――――――――Bot Logs――――――――――――――――――――――'))
 
