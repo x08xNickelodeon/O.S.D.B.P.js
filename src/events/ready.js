@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const mongoURL = process.env.mongoURL;
-const { Client, Events, Guild } = require('discord.js');
+const { Client, Events, Guild, ActivityType } = require('discord.js');
 const clc = require("cli-color")
 require('dotenv').config();
 const fs = require('fs');
@@ -37,7 +37,14 @@ module.exports = {
         console.log(clc.green(`${client.user.username} Is now runnning! `) + clc.cyanBright.bold('(Free package)'));
         console.log(" ");
         console.log(clc.yellow.bold('――――――――――――――――――――――Bot Logs――――――――――――――――――――――'))
-        
+
+        if (config.status.enabled == true) {
+            client.user.setActivity({
+                state: config.status.text,
+                name: "customstatus",
+                type: ActivityType.Custom
+            });
+        }
         async function pickPresence () {
             const option = Math.floor(Math.random() * statusArray.length);
 
@@ -57,7 +64,7 @@ module.exports = {
             } catch (error) {
                 console.error(error);
             }
-        }  
+        }
 
     },
 };

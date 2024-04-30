@@ -3,6 +3,10 @@
     "botid": "changeme",
     "clientid": "changeme",
     "guildid": "changeme",
+    "status": {
+        "enabled": true,
+        "text": "Running Version 0.1.1 Beta"
+    },
     "welcome": {
         "enabled": false,
         "channelID": "changeme",
