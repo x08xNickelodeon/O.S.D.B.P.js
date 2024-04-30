@@ -1,4 +1,6 @@
-Welcome to my person project to help people get into making discord bots
+Welcome to my personal project to help people get into making discord bots
+
+O.S.D.B.P.js stands for `Open source discord bot project`
 
 Everything in this bot will be made by me and my devs
 
