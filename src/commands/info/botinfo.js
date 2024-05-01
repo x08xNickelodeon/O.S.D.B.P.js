@@ -42,6 +42,7 @@ module.exports = {
         .setThumbnail(`${icon}`)
         .setFooter({ text: `Bot ID: ${config.botid}`})
         .setTimestamp()
+        .addFields({ name: 'Total Commands Ran', value: `${config.totalCommandsRan}}`, inline: true})
         .addFields({ name: 'Server Number', value: `${client.guilds.cache.size}`, inline: true})
         .addFields({ name: 'Server Members', value: `${servercount}`, inline: true})
         .addFields({ name: 'Latency', value: `${ping}`, inline: true})
