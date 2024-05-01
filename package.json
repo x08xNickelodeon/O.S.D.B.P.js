@@ -11,7 +11,7 @@
     "mongodb": "^6.4.0",
     "mongoose": "^8.2.1",
     "os": "^0.1.2",
-    "undici": "v6.8.0"
+    "undici": "^6.15.0"
   },
   "name": "discord-bot",
   "version": "1.0.0",
