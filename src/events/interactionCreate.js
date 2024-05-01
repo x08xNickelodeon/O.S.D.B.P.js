@@ -10,7 +10,8 @@ module.exports = {
         const command = client.commands.get(interaction.commandName);
 
         if (!command) return
-                //error handling
+        config.totalCommandsRan += 1
+        fs.writeFileSync('./config.json', JSON.stringify(config, null, 2))
         try{
             const cmd = await command.execute(interaction, client);
         } catch (error) {
