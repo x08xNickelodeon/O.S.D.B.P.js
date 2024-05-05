@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "chalk": "^5.3.0",
     "cli-color": "^2.0.4",
-    "discord-html-transcripts": "^3.2.0",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.1",
     "ejs": "^3.1.9",
