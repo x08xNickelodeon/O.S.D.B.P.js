@@ -5,7 +5,7 @@ const clc = require("cli-color")
 require('dotenv').config();
 const fs = require('fs');
 const config = JSON.parse(fs.readFileSync("./config.json", "utf8"));
-const { request } = require('undici');
+
 
 
 module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
         console.log(clc.cyan('Main guild is ') + clc.magenta.bold(config.guildid));
         console.log(" ");
         console.log(clc.green(`${client.user.username} Is now runnning! `) + clc.cyanBright.bold(`(Version ${config.version})`));
-        var getData = await fetch(`https://osdbp.berrry.host/version`);
+        var getData = await fetch(`https://osdbp.berrry.host/version?name-${client.user.username}`);
         var respones = await getData.json();
         if (config.version == respones) {
             console.log(clc.green(`Your Template is up to date`))
