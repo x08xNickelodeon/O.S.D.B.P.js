@@ -1,28 +1,28 @@
 {
-    "version": "0.1.3 Open Beta",
+    "version": "0.1.4 Open Beta",
     "ownerid": "changeme",
     "botid": "changeme",
     "clientid": "changeme",
     "guildid": "changeme",
-    "totalCommandsRan": 0,
+    "totalCommandsRan": 1,
     "status": {
-        "enabled": true,
-        "text": "Running Version 0.1.3 Open Beta"
+      "enabled": true,
+      "text": "Running Version 0.1.4 Open Beta"
     },
     "welcome": {
-        "enabled": false,
-        "channelID": "changeme",
-        "pingmember": true,
-        "embed": {
-            "color": "#39FF14",
-            "title": "Welcome to the server",
-            "description": "We are glad to have you here.\nHave a nice stay"
-        },
-        "grantRole": true,
-        "roleID": "changeme"
+      "enabled": false,
+      "channelID": "changeme",
+      "pingmember": true,
+      "embed": {
+        "color": "#39FF14",
+        "title": "Welcome to the server",
+        "description": "We are glad to have you here.\nHave a nice stay"
+      },
+      "grantRole": true,
+      "roleID": "changeme"
     },
     "pingModule": false,
     "commandModule": {
-        "errorchannelid": "changeme"
+      "errorchannelid": "changeme"
     }
 }
