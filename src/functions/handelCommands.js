@@ -40,6 +40,15 @@ module.exports = (client) => {
                 );
 
                 console.log(clc.greenBright('Successfully reloaded application (/) commands.'));
+                console.log(clc.white.bold('―――――――――――――――Commands――――――――――――――'))
+                for (folder of commandFolders) {
+                    const commandFiles = fs.readdirSync(`${path}/${folder}`).filter(file => file.endsWith('.js'));
+                    for (const file of commandFiles) {
+                        const command = require(`../commands/${folder}/${file}`);
+                        console.log(clc.green(`[✓] ${command.data.name}`))
+                    }
+                }
+                console.log(clc.white.bold('―――――――――――――――――――――――――――――――――――――'))
             } catch (error) {
                 console.error(error);
             }
