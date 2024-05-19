@@ -63,3 +63,23 @@ client.on('guildMemberAdd', member => {
     
   });
 
+client.on('guildMemberRemove', member => {
+    // Get the channel where you want to send the welcome message
+    if (config.leave.enabled == true) {
+        if (member.guild != config.guildid) {
+            return;
+        } else {
+            const cha = config.leave.channelID
+            const channel = member.guild.channels.cache.get(cha)
+            const embed = new EmbedBuilder()
+              .setColor(`${config.leave.embed.color}`)
+              .setTitle(config.leave.embed.title)
+              .setDescription(config.leave.embed.description)
+              .setThumbnail(member.user.avatarURL({ dynamic: true }))
+              .setTimestamp();
+            channel.send({ content: `<@${member.user.id}>`, embeds: [embed] })
+            console.log(clc.xterm(119)(`${member.user.username} Has left the discord`))
+        }
+    }
+    
+  });

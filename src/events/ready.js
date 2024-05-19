@@ -15,35 +15,41 @@ module.exports = {
         if (!mongoURL) return;
             
         await mongoose.connect(mongoURL || '');
-        if (mongoose.connect) {
-            console.log(clc.xterm(49).bgBlack('Database has been connected'));
-        } else {
-            console.log(clc.red.bgBlack('Database has failed to connect'));
-        }
         console.log(' ')
         console.log(clc.white.bold('―――――――――――――――Modules―――――――――――――――'))
         if (config.welcome.enabled == true) {
-            console.log(clc.green.bgBlack('Welcome module enabled'))
+            console.log(clc.green.bgBlack('[✓] Welcome module enabled'))
         } else {
-            console.log(clc.red.bgBlack('Welcome module disabled'))
+            console.log(clc.red.bgBlack('[✕] Welcome module disabled'))
         }
         if (config.pingModule == true) {
-            console.log(clc.green.bgBlack('Bot ping module enabled'))
+            console.log(clc.green.bgBlack('[✓] Bot ping module enabled'))
         } else {
-            console.log(clc.red.bgBlack('Bot ping module disabled'))
+            console.log(clc.red.bgBlack('[✕] Bot ping module disabled'))
+        }
+        if (config.leave.enabled == true) {
+            console.log(clc.green.bgBlack('[✓] Leave module enabled'))
+        } else {
+            console.log(clc.red.bgBlack('[✕] Leave module disabled'))
         }
         console.log(clc.white.bold('―――――――――――――――――――――――――――――――――――――'))
         console.log(" ");
-        console.log(clc.cyan('Main guild is ') + clc.magenta.bold(config.guildid));
+        if (mongoose.connect) {
+            console.log(clc.green('[✓] Database has been connected'));
+        } else {
+            console.log(clc.red('[✕] Database has failed to connect'));
+        }
         console.log(" ");
-        console.log(clc.green(`${client.user.username} Is now runnning! `) + clc.cyanBright.bold(`(Version ${config.version})`));
+        console.log(clc.green(`[✓] ${client.user.username} Is now runnning! `) + clc.cyanBright.bold(`(Version ${config.version})`));
         var getData = await fetch(`https://osdbp.berrry.host/version?name-${client.user.username}`);
         var respones = await getData.json();
         if (config.version == respones) {
-            console.log(clc.green(`Your Template is up to date`))
+            console.log(clc.green(`[✓] Your Template is up to date`))
         } else {
-            console.log(clc.red(`Your Template needs a update. Current version is ${respones}`))
+            console.log(clc.red(`[✕] Your Template needs a update. Current version is ${respones}`))
         }
+        console.log(" ")
+        console.log(clc.cyan('Main guild is ') + clc.cyanBright(config.guildid));
         console.log(" ");
         console.log(clc.yellow.bold('――――――――――――――――――――――Bot Logs――――――――――――――――――――――'))
 

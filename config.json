@@ -1,28 +1,37 @@
 {
-    "version": "0.1.4 Open Beta",
-    "ownerid": "changeme",
-    "botid": "changeme",
-    "clientid": "changeme",
-    "guildid": "changeme",
-    "totalCommandsRan": 1,
-    "status": {
-      "enabled": true,
-      "text": "Running Version 0.1.4 Open Beta"
+  "version": "0.1.5 Open Beta",
+  "ownerid": "changeme",
+  "botid": "changeme",
+  "clientid": "changeme",
+  "guildid": "changeme",
+  "totalCommandsRan": 0,
+  "status": {
+    "enabled": true,
+    "text": "Running Version 0.1.5 Open Beta"
+  },
+  "welcome": {
+    "enabled": false,
+    "channelID": "changeme",
+    "pingmember": false,
+    "embed": {
+      "color": "#39FF14",
+      "title": "Welcome to the server",
+      "description": "We are glad to have you here.\nHave a nice stay"
     },
-    "welcome": {
-      "enabled": false,
-      "channelID": "changeme",
-      "pingmember": true,
-      "embed": {
-        "color": "#39FF14",
-        "title": "Welcome to the server",
-        "description": "We are glad to have you here.\nHave a nice stay"
-      },
-      "grantRole": true,
-      "roleID": "changeme"
-    },
-    "pingModule": false,
-    "commandModule": {
-      "errorchannelid": "changeme"
+    "grantRole": false,
+    "roleID": "changeme"
+  },
+  "leave": {
+    "enabled": false,
+    "channelID": "changeme",
+    "embed": {
+      "color": "#ff0f2b",
+      "title": "Has left the server",
+      "description": "We are go have had you in the server\nWe hope you rejoin later on"
     }
+  },
+  "pingModule": false,
+  "commandModule": {
+    "errorchannelid": "changeme"
+  }
 }
