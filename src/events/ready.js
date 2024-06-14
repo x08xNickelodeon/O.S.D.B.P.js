@@ -41,13 +41,6 @@ module.exports = {
         }
         console.log(" ");
         console.log(clc.green(`[✓] ${client.user.username} Is now runnning! `) + clc.cyanBright.bold(`(Version ${config.version})`));
-        var getData = await fetch(`https://osdbp.berrry.host/version?name-${client.user.username}`);
-        var respones = await getData.json();
-        if (config.version == respones) {
-            console.log(clc.green(`[✓] Your Template is up to date`))
-        } else {
-            console.log(clc.red(`[✕] Your Template needs a update. Current version is ${respones}`))
-        }
         console.log(" ")
         console.log(clc.cyan('Main guild is ') + clc.cyanBright(config.guildid));
         console.log(" ");
