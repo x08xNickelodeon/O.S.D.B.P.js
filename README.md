@@ -8,4 +8,4 @@ Any donations will be appreciated greatly
 https://cash.app/$x08xnickelodeon 
 
 Join the support server if you need any help 
-https://discord.gg/eq36cCu4Yp
+https://discord.gg/HZdsjrKvNA
