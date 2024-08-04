@@ -10,6 +10,18 @@
     "enabled": true,
     "text": "Running Version 0.1.7 Open Beta"
   },
+  "website": {
+    "enabled": false,
+    "port": 3000,
+    "url": "techbyte.host",
+    "discordlink": "",
+    "themecolor": "1511f7",
+    "botinvite": "ChangeMe",
+    "logs": {
+      "enabled": false,
+      "webhook": "changeme"
+    }
+  },
   "welcome": {
     "enabled": false,
     "channelID": "changeme",

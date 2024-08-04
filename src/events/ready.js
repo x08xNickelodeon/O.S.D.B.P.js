@@ -5,15 +5,20 @@ const clc = require("cli-color")
 require('dotenv').config();
 const fs = require('fs');
 const config = JSON.parse(fs.readFileSync("./config.json", "utf8"));
-
-
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 module.exports = {
     name: 'ready',
     once: true,
     async execute(client) {
         if (!mongoURL) return;
-            
         await mongoose.connect(mongoURL || '');
         console.log(' ')
         console.log(clc.white.bold('―――――――――――――――Modules―――――――――――――――'))
@@ -42,9 +47,23 @@ module.exports = {
         console.log(" ");
         console.log(clc.green(`[✓] ${client.user.username} Is now runnning! `) + clc.cyanBright.bold(`(Version ${config.version})`));
         console.log(" ")
+        var getData = await fetch(`https://techbyte.host/osdbp/version`);
+        var respones = await getData.json();
+        if (config.version == respones) {
+            console.log(clc.green(`[✓] Your Template is up to date`))
+        } else {
+            console.log(clc.red(`[✕] Your Template needs a update. Current version is ${respones}`))
+        }
+        console.log(" ")
         console.log(clc.cyan('Main guild is ') + clc.cyanBright(config.guildid));
         console.log(" ");
-        console.log(clc.yellow.bold('――――――――――――――――――――――Bot Logs――――――――――――――――――――――'))
+        console.log(clc.yellow.bold('――――――――――――――――――――――Bot Logs――――――――――――――――――――――'));
+        if (config.website.enabled == true) {
+            console.log(" ");
+            console.log(clc.red("―――――Waring―――――"));
+            console.log(clc.red("The built in webserver is not fully done and is just a experimental module"))
+            require("../../website/webserver.js");
+        }
 
         if (config.status.enabled == true) {
             client.user.setActivity({
