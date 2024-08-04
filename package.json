@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ascii-table": "^0.0.9",
     "cli-color": "^2.0.4",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.1",

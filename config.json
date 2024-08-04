@@ -1,13 +1,14 @@
 {
-  "version": "0.1.6 Open Beta",
+  "version": "0.1.7 Open Beta",
   "ownerid": "changeme",
   "botid": "changeme",
   "clientid": "changeme",
   "guildid": "changeme",
+  "prefix": "?",
   "totalCommandsRan": 0,
   "status": {
     "enabled": true,
-    "text": "Running Version 0.1.5 Open Beta"
+    "text": "Running Version 0.1.7 Open Beta"
   },
   "welcome": {
     "enabled": false,

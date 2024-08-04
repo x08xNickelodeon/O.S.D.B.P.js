@@ -4,6 +4,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 const clc = require("cli-color");
 
 client.commands = new Collection();
+client.pcommands = new Collection();
+client.aliases = new Collection();
 //function sendsomeMessage() {
 //    const ram2 = process.memoryUsage().external / 1024 / 1024 / 2;
 //    const ram = process.memoryUsage().heapTotal / 1024 / 1024 + ram2;
@@ -17,9 +19,18 @@ require('dotenv').config();
 const functions = fs.readdirSync("./src/functions").filter(file => file.endsWith(".js"));
 const eventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"));
 const commandFolders = fs.readdirSync("./src/commands");
+const pcommandFolders = fs.readdirSync('./src/prefix');
 
 process.on('unhandledRejection', (reason, promise) => {
     console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+process.on('uncaughtException', (err) => {
+    console.log('Uncaught Exception:', err);
+});
+
+process.on('uncaughtExceptionMonitor', (err, origin) => {
+    console.log('Uncaught Exception Monitor:', err, origin);
 });
 
 (async () => {
