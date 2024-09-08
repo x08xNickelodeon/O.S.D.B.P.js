@@ -1,6 +1,4 @@
 const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType } = require("discord.js");
-const fs = require('fs');
-const config = JSON.parse(fs.readFileSync("./config.json", "utf8"));
 
 module.exports = {
     name: 'interactionCreate',
@@ -10,8 +8,6 @@ module.exports = {
         const command = client.commands.get(interaction.commandName);
 
         if (!command) return
-        config.totalCommandsRan += 1
-        fs.writeFileSync('./config.json', JSON.stringify(config, null, 2))
         try{
             const cmd = await command.execute(interaction, client);
         } catch (error) {
@@ -28,7 +24,7 @@ module.exports = {
             var channel = interaction.channel;
             var errorTime = `<t:${Math.floor(Date.now() / 1000)}:R>`;
 
-            const sendChannel = await client.channels.fetch(config.commandModule.errorchannelid);
+            const sendChannel = await client.channels.fetch(client.config.errorchannelid);
 
             const embed = new EmbedBuilder()
             .setColor("Blurple")

@@ -3,14 +3,12 @@ const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
 const clc = require("cli-color");
 require('dotenv').config();
-const config = JSON.parse(fs.readFileSync("./config.json", "utf8"));
 const ascii = require("ascii-table");
 const table = new ascii().setTitle("Commands").setHeading("File Name", "Status", "Size");
 
-const clientId = config.clientid; 
-const guildId = config.guildid; 
-
 module.exports = (client) => {
+    const clientId = client.config.clientid; 
+    const guildId = client.config.guildid; 
     console.clear();
     console.log(clc.blue('Open source bot template made by x08xNickelodeon on discord'));
     console.log(clc.cyan('https://github.com/x08xNickelodeon/O.S.D.B.P.js'));

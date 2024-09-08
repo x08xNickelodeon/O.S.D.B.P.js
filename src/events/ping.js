@@ -1,14 +1,8 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
-require('dotenv').config();
-const fs = require('fs');
-const config = JSON.parse(fs.readFileSync("./config.json", "utf8"));
 
 module.exports = {
     name: 'messageCreate',
     async execute (message, client) {
-        if (config.pingModule != true) {
-            return
-        }
         async function sendMessage(reply) {
             const embed = new EmbedBuilder()
             .setColor("Green")
