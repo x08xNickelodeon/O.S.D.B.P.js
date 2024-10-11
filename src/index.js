@@ -1,35 +1,33 @@
-const { Client, GatewayIntentBits, Collection } = require(`discord.js`);
-const fs = require('fs');
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers] }); 
+const { ShardingManager } = require('discord.js');
 require('dotenv').config();
-client.config = require('./config');
+const clc = require("cli-color");
+const config = require('./config');
 
-client.commands = new Collection();
-client.pcommands = new Collection();
-client.aliases = new Collection();
+console.clear();
+console.log(clc.blue('Open source bot template made by x08xNickelodeon on discord'));
+console.log(clc.cyan('https://github.com/x08xNickelodeon/O.S.D.B.P.js'));
 
-const functions = fs.readdirSync("./src/functions").filter(file => file.endsWith(".js"));
-const eventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"));
-const commandFolders = fs.readdirSync("./src/commands");
-const pcommandFolders = fs.readdirSync('./src/prefix');
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+const manager = new ShardingManager('./src/shard.js', { 
+    token: process.env.token,
+    totalShards: config.shard.totalShards // This will let Discord.js decide how many shards are needed
 });
 
-process.on('uncaughtException', (err) => {
-    console.log('Uncaught Exception:', err);
+let readyShards = 0;
+
+manager.on('shardCreate', shard => {
+    console.log(clc.yellow(`Launching shard ${shard.id}`));
+    
+    // Listen for when each shard becomes ready
+    shard.on('ready', () => {
+        readyShards++;
+        console.log(clc.green(`Shard ${shard.id} is ready`));
+        
+        // Check if all shards are ready
+        if (readyShards === manager.totalShards) {
+            console.log(clc.yellow.bold('――――――――――――――――――――――Bot Logs――――――――――――――――――――――'));
+        }
+        
+    });
 });
 
-process.on('uncaughtExceptionMonitor', (err, origin) => {
-    console.log('Uncaught Exception Monitor:', err, origin);
-});
-
-(async () => {
-    for (file of functions) {
-        require(`./functions/${file}`)(client);
-    }
-    client.handleEvents(eventFiles, "./src/events");
-    client.handleCommands(commandFolders, "./src/commands"); 
-    client.login(process.env.token)
-})();
+manager.spawn(); // Spawns the shards

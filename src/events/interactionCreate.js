@@ -6,6 +6,8 @@ module.exports = {
         if (!interaction.isCommand()) return;
 
         const command = client.commands.get(interaction.commandName);
+        const shardId = client.shard ? client.shard.ids[0] : 'N/A';
+        console.log(clc.green(`[Shard-${shardId}] Cmd log: `) + interaction.commandName)
 
         if (!command) return
         try{
